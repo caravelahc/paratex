@@ -1,21 +1,34 @@
-# Changelog
-All notable changes to this project will be documented in this file.
+Changelog
+=========
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Como utilizar
+-------------
 
-## 2019-09-18-08:00_10:00
+Cada "passagem de canudo" deve ser registrada aqui em 3 seções:
+- Changes: mudanças realizadas no projeto;
+- New Challenges: coisas que surgiram como questionamentos em sua sessão;
+- Next Steps: melhores proximos passos da proxima dupla, em sua opinião
+
+Este formato é baseado em [Keep a
+Changelog](https://keepachangelog.com/en/1.0.0/).
+
+## [0.0.1] - 18/09/2019
+
 ### Changes
-- Added CHANGELOG.MD
-- Added README.MD
-- Added ESCOPO.MD
-- Added CDC.MD
+- Adicionado CHANGELOG.md;
+- Adicionado README.md;
+- Adicionado ESCOPO.md;
+- Adicionado CDC.md.
 
 ### New Challenges
-- Definição de Regra de Negócio confusa: nao faz sentido pegar a presença de uma comissao que o deputado nao participa 
+
+- Definição de Regra de Negócio confusa: não faz sentido pegar a presença de
+  uma comissao que o deputado não participa.
 
 ### Next Steps
-- Definir qual presença queremos detectar
-- Continuar fazendo no braço até entender o problema como um todo
-- Definir bem o problema e modus operandi braçal num documento para outros reproduzirem
-- Refinar CDC.md, coloquei só um cabeçalho nele
+
+- Definir qual presença queremos detectar;
+- Continuar fazendo no braço até entender o problema como um todo;
+- Definir bem o problema e _modus operandi_ braçal num documento para outros
+  reproduzirem;
+- Refinar CDC.md, coloquei só um cabeçalho nele.
