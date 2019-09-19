@@ -22,6 +22,13 @@ Se for sua primeira contribuição
 
    ![Localização do botão de Fork](https://i.imgur.com/pMY4odP.png)
 
+2. **Clone o _seu_ fork**:
+
+   ```console
+   $ cd onde-vai-ficar-o-projeto
+   $ git clone https://github.com/seuusuario/paratex
+   ```
+
 2. Leia as **[metas do projeto](README.md#metas)**;
 3. Se tiver dúvidas do que é cada conceito/termo/etc., **veja se tem o que
    procura na [Contextualização](README.md#contextualização)**;
@@ -77,18 +84,14 @@ Início da sessão
    > podem ajudar, ou vá em "Files Changed" e tente decifrar o que foi feito._
 2. Clique em **"Merge Pull Request"**;
 3. Tenha as últimas alterações em seu computador:
-   1. Se não tiver clonado o repositório, execute:
-      ```console
-      $ cd onde-vai-ficar-o-projeto
-      $ git clone https://github.com/caravelahc/paratex
-      ```
-   2. Se já tiver clonado o repositório, atualize o seu repositório local:
-      ```console
-      $ cd pasta-local-do-paratex
-      $ git pull
-      ```
+   ```console
+   $ cd pasta-do-seu-fork
+   $ git remote add upstream https://github.com/caravelahc/paratex # Necessário apenas uma vez
+   $ git pull upstream master
+   ```
 
 #### 2. Organize-se
+
 1. Vá no [GitHub Projects deste
    repositório](https://github.com/caravelahc/paratex/projects/1);
 2. A coluna **"Última corrida"** tem um resumo das conquistas, dificuldades e
@@ -125,20 +128,32 @@ Fim da sessão
    > comportamento diferente conforme valores dos parâmetros, por exemplo), não
    > precisa criar uma documentação para ela.
 2. Certifique-se de que todos os devidos _commits_ foram feitos;
-3. Envie suas alterações para o seu novo branch no repositório usando `git
-   push-u origin <sua-branch>`, por exemplo:
+3. Envie suas alterações para o seu novo branch no repositório usando `git push
+   -u origin <sua-branch>`, por exemplo:
    ```console
    $ git push -u origin run-jptiz
    ```
-5. [Crie um Pull Request](https://github.com/caravelahc/paratex/pulls):
-   1. Clique em **New Pull Request**;
+4. Vá no [Repositório do Caravela](https://github.com/caravelahc/paratex);
+5. Crie um **Pull Request**:
+   1. Clique em **New Pull Request**:
+
+      ![Localização do botão Pull Request](https://i.imgur.com/qFp0r3h.png)
+
    2. Certifique-se de que:
       - **base repository** seja `caravelahc/paratex`;
       - **base** seja `master`;
-      - **head repository** seja `caravelahc/paratex`;
-      - **compare** seja `master`.
+      - **head repository** seja `seuusuario/paratex`;
+      - **compare** seja `sua-branch`.
 
-      ![Selecionando repositório e branch corretos](https://i.imgur.com/Xg83Pxa.png)
+      ![Configuração correta do PR](https://i.imgur.com/ZF8SLU2.png)
+
+   3. Clique em **Create Pull Request** (em **verde**);
+   4. Dê um nome para suas alterações (pode ser "Canudo: (hora inicial) às
+      (hora final)");
+   5. Dê uma última verificada nas informações:
+
+      ![Exemplo de PR completo](https://i.imgur.com/GTxv0BM.png)
+   6. Clique em **Create Pull Request** uma última vez.
 
 4. [Crie issues](https://github.com/caravelahc/paratex/issues/new/choose) para
    os próximos contribuidores:
