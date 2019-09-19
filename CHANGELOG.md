@@ -19,7 +19,8 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changes
 
 - Reorganizadas as informações de uma maneira mais explicativa, com links,
-  seções, etc.
+  seções, etc;
+- Criar um projeto Poetry básico.
 
 ### New Challenges
 
@@ -27,9 +28,8 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Next Steps
 
-- Criar um projeto Poetry básico;
-- Fazer requisições a uma URL;
-- Navegar pelo HTML da página (no código Python).
+- Fazer requisições a uma URL via Python;
+- Navegar pelo HTML da página via Python.
 
 
 ## [0.0.1] - 18/09/2019
