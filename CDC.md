@@ -18,21 +18,26 @@ os dois vão trocando ideias e erros são percebidos mais facilmente._
 Se for sua primeira contribuição
 --------------------------------
 
-1. Faça um **Fork** deste repositório:
+1. Peça para ser adicionado como Contribuidor no [Chat do
+   Caravela](https://t.me/caravelahc);
+
+   > Dica: Marque @jptiz em sua mensagem.
+
+2. Faça um **Fork** deste repositório:
 
    ![Localização do botão de Fork](https://i.imgur.com/pMY4odP.png)
 
-2. **Clone o _seu_ fork**:
+3. **Clone o _seu_ fork**:
 
    ```console
    $ cd onde-vai-ficar-o-projeto
    $ git clone https://github.com/seuusuario/paratex
    ```
 
-2. Leia as **[metas do projeto](README.md#metas)**;
-3. Se tiver dúvidas do que é cada conceito/termo/etc., **veja se tem o que
+4. Leia as **[metas do projeto](README.md#metas)**;
+5. Se tiver dúvidas do que é cada conceito/termo/etc., **veja se tem o que
    procura na [Contextualização](README.md#contextualização)**;
-4. Se ainda tiver dúvidas, [abra uma issue de
+6. Se ainda tiver dúvidas, [abra uma issue de
    Esclarecimento](https://github.com/caravelahc/paratex/issues/new?assignees=&labels=question&template=esclarecimento.md&title=).
 
 Dicas gerais
