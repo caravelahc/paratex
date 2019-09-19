@@ -9,7 +9,6 @@ assignees: ''
 
 **Sobre**
 
-- [ ] Está relacionada a um problema;
 - [ ] Tem relação direta com a meta;
 - [ ] Parece fácil de fazer.
 
