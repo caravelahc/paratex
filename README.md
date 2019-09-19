@@ -13,8 +13,10 @@ para ficar no Caravela trabalhando no projeto!
 Organização do projeto
 ----------------------
 
+- [Projeto do GitHub](https://github.com/caravelahc/paratex/projects/1): Tem
+  separado quais tarefas precisam ser feitas, quais foram concluídas, etc;
 - [CDC.md](CDC.md): Regras e definições específicas da Corrida De
-  Canudos;
+  Canudos, além de algumas dicas gerais do que fazer;
 - [CHANGELOG.md](CHANGELOG.md): Detalhes de cada sessão da Corrida de Canudos.
 
 Metas

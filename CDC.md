@@ -10,8 +10,8 @@ a meta e resolvendo as diferentes _issues_ abertas nas sessões anteriores. Os
 que foi feito/dificuldades/o que falta fazer e explicar para a próxima pessoa a
 "assumir o canudo".
 
-Início da sessão
-----------------
+Primeira contribuição
+---------------------
 
 1. Se for a sua primeira vez trabalhando no projeto:
    1. Faça um _clone_ deste repositório:
@@ -21,15 +21,22 @@ Início da sessão
    2. Leia as **[metas do projeto](README.md#Metas)**;
    3. Se tiver dúvidas do que é cada conceito/termo/etc., **veja se tem o que
       procura na [Contextualização](README.md#Contextualização)**.
-2. Se não for a sua primeira vez, atualize o seu repositório local:
+
+Início da sessão
+----------------
+
+1. Se não for a sua primeira vez, atualize o seu repositório local:
    ```console
    $ cd pasta-local-do-paratex
    $ git pull
    ```
-3. Leia o [CHANGELOG.md](CHANGELOG.md), vendo quais as conquistas e
+2. Leia o [CHANGELOG.md](CHANGELOG.md), vendo quais as conquistas e
    dificuldades da última pessoa que esteve com o canudo;
-4. Veja e selecione as _[issues](https://github.com/caravelahc/paratex/issues)_
-   que quiser trabalhar em cima.
+3. Veja a seção **"Afazeres"** (no [Projeto do
+   GitHub](https://github.com/caravelahc/paratex/projects/1));
+4. Escolha em qual dos afazeres você quer trabalhar;
+5. Arraste-o para a seção **"Em andamento"**;
+6. Pode começar a trabalhar ;).
 
 Fim da sessão
 -------------

@@ -9,8 +9,28 @@ Cada "passagem de canudo" deve ser registrada aqui em 3 seções:
 - New Challenges: coisas que surgiram como questionamentos em sua sessão;
 - Next Steps: melhores proximos passos da proxima dupla, em sua opinião
 
+**Dica:** Vá editando este arquivo conforme for trabalhando no projeto.
+
 Este formato é baseado em [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/).
+
+## [0.0.2] - 18/09/2019
+
+### Changes
+
+- Reorganizadas as informações de uma maneira mais explicativa, com links,
+  seções, etc.
+
+### New Challenges
+
+- Nenhum.
+
+### Next Steps
+
+- Criar um projeto Poetry básico;
+- Fazer requisições a uma URL;
+- Navegar pelo HTML da página (no código Python).
+
 
 ## [0.0.1] - 18/09/2019
 
