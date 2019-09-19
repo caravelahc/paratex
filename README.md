@@ -10,7 +10,7 @@ Organização do projeto
 
 - [CDC.md](CDC.md): Regras e definições específicas da Corrida De
   Canudos;
-- [CHANGELOG.md](CHANGELOG.md): Detalhes de cada seção da Corrida de Canudos.
+- [CHANGELOG.md](CHANGELOG.md): Detalhes de cada sessão da Corrida de Canudos.
 
 Metas
 -----
@@ -24,8 +24,10 @@ reuniões de frente pela educação.
 **Motivação**: Diminuir a credibilidade de opositores que tenham presença
 baixa.
 
-O que são frentes parlamentares?
---------------------------------
+Contextualização
+----------------
+
+### O que são frentes parlamentares?
 
 São associações de parlamentares de vários partidos para debater sobre
 determinado tema de interesse da sociedade. Para que seja constituída, a frente
@@ -34,20 +36,18 @@ parlamentar deve registrar um requerimento, contendo:
 - Indicação do nome da Frente Parlamentar; e
 - Representante responsável por prestar as informações.
 
-O que são grupos parlamentares?
--------------------------------
+### O que são grupos parlamentares?
 
 São associações de parlamentares para fortalecer as relações entre o Congresso
 brasileiro e o parlamento de um país estrangeiro. Para serem criados, é
 necessário que o Deputado apresente um projeto de resolução (PRC), que deve ser
 votado pelo Plenário da Câmara dos Deputados.
 
-Termos
-------
+### Termos
 
-| Termos | Significado                              |
-| ------ | ---------------------------------------- |
-| ALESC  | Assembleia Legislativa de Santa Catarina |
+| Termo | Significado                              |
+| ----- | ---------------------------------------- |
+| ALESC | Assembleia Legislativa de Santa Catarina |
 
 Links
 -----
