@@ -5,6 +5,11 @@ O PARATEX (**PAR**liamentary **AT**tendance **EX**tractor) visa extrair dados
 como a frequência de presença dos deputados de Santa Catarina em diferentes
 reuniões/assembleias.
 
+Este projeto está sendo construído através de uma ["Corrida de
+Canudos"](CDC.md). Interessado em participar? [Aloque um horário em nossa
+planilha](https://docs.google.com/spreadsheets/d/15YoVRjr7j4X9EoDfRwoTIvKds6SNr2lGjA7K4de16n0/edit#gid=0)
+para ficar no Caravela trabalhando no projeto!
+
 Organização do projeto
 ----------------------
 
