@@ -92,7 +92,10 @@ Início da sessão
    ```console
    $ cd pasta-do-seu-fork
    $ git remote add upstream https://github.com/caravelahc/paratex # Necessário apenas uma vez
+   $ git checkout master # Se tiver trocado de branch
    $ git pull upstream master
+   $ git checkout sua-branch # Se já tiver feito alguma contribuição
+   $ git rebase master # De novo: só se já tiver feito alguma contribuição
    ```
 
 #### 2. Organize-se
