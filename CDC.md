@@ -18,8 +18,10 @@ os dois vão trocando ideias e erros são percebidos mais facilmente._
 Se for sua primeira contribuição
 --------------------------------
 
-1. Peça para ser adicionado como contribuidor do repositório [no chat do
-   Caravela](t.me/caravelahc);
+1. Faça um **Fork** deste repositório:
+
+   ![Localização do botão de Fork](https://i.imgur.com/pMY4odP.png)
+
 2. Leia as **[metas do projeto](README.md#metas)**;
 3. Se tiver dúvidas do que é cada conceito/termo/etc., **veja se tem o que
    procura na [Contextualização](README.md#contextualização)**;
@@ -123,22 +125,32 @@ Fim da sessão
    > comportamento diferente conforme valores dos parâmetros, por exemplo), não
    > precisa criar uma documentação para ela.
 2. Certifique-se de que todos os devidos _commits_ foram feitos;
-3. Envie suas alterações para o seu novo branch no repositório usando `-u
-   origin <sua-branch>`, por exemplo:
+3. Envie suas alterações para o seu novo branch no repositório usando `git
+   push-u origin <sua-branch>`, por exemplo:
    ```console
    $ git push -u origin run-jptiz
    ```
 5. [Crie um Pull Request](https://github.com/caravelahc/paratex/pulls):
    1. Clique em **New Pull Request**;
-   2. Certifique-se de que o **base repository** é `caravelahc/paratex` e
-      **base** seja `master`:
+   2. Certifique-se de que:
+      - **base repository** seja `caravelahc/paratex`;
+      - **base** seja `master`;
+      - **head repository** seja `caravelahc/paratex`;
+      - **compare** seja `master`.
 
-      ![Selecionando repositório e branch corretos](https://imgur.com/Xg83Pxa)
-   3. Certifique-se de que o **head repository** é `caravelahc/paratex` e
-      **compare** seja `master`.
+      ![Selecionando repositório e branch corretos](https://i.imgur.com/Xg83Pxa.png)
 
 4. [Crie issues](https://github.com/caravelahc/paratex/issues/new/choose) para
-   os próximos contribuidores;
+   os próximos contribuidores:
+   1. Crie elas clicando no **Get Started** da categoria correta;
+   2. Adicione elas ao projeto:
+      1. Visite o [GitHub Projects deste
+         repositório](https://github.com/caravelahc/paratex/projects/1)
+      2. Clique em **"Add cards"** à direita:
+
+         ![Localização do botão Add Cards](https://i.imgur.com/lU4NAXA.png)
+
+      3. Arraste suas issues em **Última corrida**.
 5. Se o próximo contribuidor estiver presente, repasse a ele as informações e
    explique o que for necessário (_"estava fazendo X mas não deu certo, minha
    ideia era [...]"_).
