@@ -1,34 +1,36 @@
 '''Attendance extractor module.'''
+from typing import Dict, Tuple
 from bs4 import BeautifulSoup
+from bs4.element import Tag
 
 
-def extract_attendance(html: str):
+def extract_attendance(html: str) -> Tuple[str, Dict[str, str]]:
+    '''Extracts every parliamentary's attendance in a given ALESC's meeting
+    attendance HTML page.'''
     soup = BeautifulSoup(html, 'html.parser')
 
-    session_title = find_title(soup)
+    session_title = find_session_title(soup)
     att_table = find_attendance_table(soup)
 
     attendance = {}
 
     for parliamentary, state in iter_rows(att_table):
-        print(f'{parliamentary}: {state}')
+        attendance[parliamentary] = state
 
     return session_title, attendance
 
 
-def parse(html: str):
-    # all presences are on a tr tag
-    aux = soup.find_all('tr')
+def find_session_title(soup: BeautifulSoup) -> str:
+    return soup.find(id='conteudo').h3.text
 
-    # we seem to have 2 options:
-    # 1- find a better way to prevent these from entering
-    #     aux, in the find_all operation
-    # 2- removing bugs after creating the list
 
-    # after beating my head onto rocks for 4 hour straight if found this:
-    correct_entries = [i for i in aux if i.find('img') is None]
+def find_attendance_table(soup: BeautifulSoup) -> Tag:
+    return soup.find(id='conteudo').table
 
-    # it works because the incorrect stuff have images
-    # enjoy
 
-    correct_entries  # Just to avoid unused warning - WIP
+def iter_rows(table: Tag):
+    '''Iter through a table's rows.'''
+    trs = table.find_all('tr')
+    for tr in trs:
+        tds = tr.find_all('td')
+        yield (td.text.strip() for td in tds)
