@@ -14,6 +14,30 @@ Cada "passagem de canudo" deve ser registrada aqui em 3 seções:
 Este formato é baseado em [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.0.3] - 21/09/2019
+
+### Changes
+
+- Scraper Iniciado
+
+### New Challenges
+
+- Tratar as ausências com justificativa, que possuem varios detalhes.
+    (talvez seja possivel só pegar os presentes, e assumir o resto como ausente)
+
+### Next Steps
+
+- O mais imediato seria criar uma estrutura de dados pra receber as ausencias e presenças
+    (algo como uma namedtuple deve servir)
+    acho bem importante que a gente nao saia ja contando ausencia e presença com uma tabela de nome
+    eh bom a gente manter essa estrutura pronta pra receber outros dados,
+    eu faria um negocio tipo Parlamentar(nome, presente) e Assembleia( [Parlamentar] )
+
+- Já dá pra ir vendo como que a gente vai pegar todas as seções,
+    eu achei o selenium muito irado pra isso
+
+
+
 ## [0.0.2] - 18/09/2019
 
 ### Changes
