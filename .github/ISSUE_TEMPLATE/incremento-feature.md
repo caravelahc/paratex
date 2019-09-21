@@ -7,13 +7,10 @@ assignees: ''
 
 ---
 
-**Sobre**
-
-- [ ] Tem relação direta com a meta;
-- [ ] Parece fácil de fazer.
+**Resumo**
 
 (Uma breve descrição da _feature_/incremento.)
 
 **Alternativas**
 
-Outras possibilidades de soluções para a _feature_/incremento.
+(Outras possibilidades de soluções para a _feature_/incremento (se tiver ideias).)
