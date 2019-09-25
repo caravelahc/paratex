@@ -37,6 +37,20 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
     eu achei o selenium muito irado pra isso
 
 
+## [0.0.4] - 25/09/2019
+
+### Changes
+
+- Agora o Scraper percorre a pagina toda e cria um dataframe pandas
+
+### New Challenges
+
+- nenhum
+
+### Next Steps
+
+- Usar Selenium para Iterar sobre todas as paginas
+
 
 ## [0.0.2] - 18/09/2019
 

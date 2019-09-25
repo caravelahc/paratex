@@ -8,6 +8,7 @@ license = "mit"
 [tool.poetry.dependencies]
 python = "^3.7"
 bs4 = "^0.0.1"
+pandas = "^0.25.1"
 
 [tool.poetry.dev-dependencies]
 
