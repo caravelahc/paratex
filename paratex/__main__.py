@@ -1,11 +1,13 @@
+import pandas as pd
 import requests
+import bs4
 from bs4 import BeautifulSoup
-
 
 def main():
     URL = 'http://transparencia.alesc.sc.gov.br/presenca_plenaria_detalhes.php?id=1783'
     html = load_html(URL)
-    parse(html)
+    one_day_presences = parse(html)
+    visualizing_results(one_day_presences)
 
 
 def load_html(url: str) -> str:
@@ -15,22 +17,34 @@ def load_html(url: str) -> str:
 def parse(html: str):
     soup = BeautifulSoup(html, 'html.parser')
 
-    # all presences are on a tr tag
     aux = soup.find_all('tr')
+    entries = [i for i in aux if i.find('img') is None]
+    observations = [build_one_observation(entry, '20-10-2010') for entry in entries]
+    
+    return observations
 
-    # we seem to have 2 options:
-    # 1- find a better way to prevent these from entering
-    #     aux, in the find_all operation
-    # 2- removing bugs after creating the list
+def build_one_observation(tr: bs4.element.Tag, date:str) -> (str, str, str, str):
+    # (Name, Presence, Justification, Date)
+    td = tr.findAll('td') 
+    name = td[0].text
+    
+    aux =  td[1]
+    if aux.find('a') == None:
+        presence = aux.text.replace(" ", "").strip()
+        justification = 'x'
+    else:
+        presence = aux.find('a').text.strip()
+        justification = aux.find('div').text.strip()
+        
+    return (name, presence, justification, date)
 
-    # after beating my head onto rocks for 4 hour straight if found this:
-    correct_entries = [i for i in aux if i.find('img') is None]
 
-    # it works because the incorrect stuff have images
-    # enjoy
-
-    correct_entries  # Just to avoid unused warning - WIP
-    pass
+# Intended to be used later on the code
+# will leave this here for utility purposes for now
+def visualizing_results(observations):
+    df = pd.DataFrame(observations)
+    df = df.rename({0:'Nome', 1:'Presenca', 2:'Justificativa', 3:'Data'}, axis=1)
+    print(df.tail())
 
 
 if __name__ == '__main__':
