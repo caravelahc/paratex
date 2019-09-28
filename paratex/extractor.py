@@ -1,7 +1,16 @@
 '''Attendance extractor module.'''
-from typing import Dict, Tuple
+from dataclasses import dataclass
+from typing import Dict, Optional, Tuple
+
 from bs4 import BeautifulSoup
 from bs4.element import Tag
+
+
+@dataclass
+class Session:
+    title: str
+    date: str
+    attendance: Dict[str, Tuple[str, Optional[str]]]
 
 
 def extract_attendance(html: str) -> Tuple[str, Dict[str, str]]:
@@ -9,7 +18,8 @@ def extract_attendance(html: str) -> Tuple[str, Dict[str, str]]:
     attendance HTML page.'''
     soup = BeautifulSoup(html, 'html.parser')
 
-    session_title = find_session_title(soup)
+    title, date = find_session_header(soup)
+
     att_table = find_attendance_table(soup)
 
     attendance = {}
@@ -25,11 +35,14 @@ def extract_attendance(html: str) -> Tuple[str, Dict[str, str]]:
             justification = state.find('div').text.strip()
         attendance[parliamentary] = (presence, justification)
 
-    return session_title, attendance
+    return Session(title, date, attendance)
 
 
-def find_session_title(soup: BeautifulSoup) -> str:
-    return soup.find(id='conteudo').h3.text
+def find_session_header(soup: BeautifulSoup) -> Tuple[str, str]:
+    '''Retrieves title and date from session page.'''
+    title, date = soup.find(id='conteudo').h3.text.split('-')
+    date = date.replace('/', '-')
+    return title.strip(), date.strip()
 
 
 def find_attendance_table(soup: BeautifulSoup) -> Tag:

@@ -7,10 +7,11 @@ from .extractor import extract_attendance
 def main():
     URL = 'http://transparencia.alesc.sc.gov.br/presenca_plenaria_detalhes.php?id=1783'
     html = load_html(URL)
-    session, attendance = extract_attendance(html)
+    session = extract_attendance(html)
+    print(session)
     visualizing_results(
-        (name, presence, justification, '19-09-2019')
-        for name, (presence, justification) in attendance.items()
+        (name, presence, justification, session.date)
+        for name, (presence, justification) in session.attendance.items()
     )
 
 
