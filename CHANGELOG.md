@@ -31,7 +31,8 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Next Steps
 
-- Usar Selenium para Iterar sobre todas as paginas
+- Usar get_sessions_on_month junto com get_attendance, pra gerar o pandas inteiro
+- Usar algo emcima de get_sessions_on_month, pra pegar ao longo de varios meses
 
 
 ## [0.0.4] - 25/09/2019
