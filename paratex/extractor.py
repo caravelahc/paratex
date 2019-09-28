@@ -4,6 +4,7 @@ from typing import Dict, Optional, Tuple
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
+import requests
 
 
 @dataclass
@@ -13,9 +14,22 @@ class Session:
     attendance: Dict[str, Tuple[str, Optional[str]]]
 
 
-def extract_attendance(html: str) -> Tuple[str, Dict[str, str]]:
+def url_from_id(session_id: int):
+    BASE_URL = (
+        'http://transparencia.alesc.sc.gov.br/'
+        'presenca_plenaria_detalhes.php'
+    )
+    return f'{BASE_URL}?id={session_id}'
+
+
+def load_html(url: str) -> str:
+    return requests.get(url).text
+
+
+def extract_attendance(session_id: int) -> Tuple[str, Dict[str, str]]:
     '''Extracts every parliamentary's attendance in a given ALESC's meeting
     attendance HTML page.'''
+    html = load_html(url_from_id(session_id))
     soup = BeautifulSoup(html, 'html.parser')
 
     title, date = find_session_header(soup)

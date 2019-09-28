@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "paratex"
-version = "0.0.3"
+version = "0.0.6"
 description = "Parliamentary Attendance Extractor."
 authors = ["João Paulo Taylor Ienczak Zanette <jpaulotiz@gmail.com>"]
 license = "mit"
