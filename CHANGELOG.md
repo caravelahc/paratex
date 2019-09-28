@@ -14,6 +14,41 @@ Cada "passagem de canudo" deve ser registrada aqui em 3 seções:
 Este formato é baseado em [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/).
 
+
+## [0.0.5] - 28/09/2019
+
+### Changes
+
+- Adicionando repartição entre get_attendance e get_sessions_on_page
+- Selenium descartado, continuamos usando bs4 e requests
+
+### New Challenges
+
+- Criar uma forma de navegar nos meses no botão da pagina
+    ('http://transparencia.alesc.sc.gov.br/presenca_plenaria.php')
+
+- Remover redundancia de código entre get_attendance e get_sessions_on_page
+
+### Next Steps
+
+- Usar Selenium para Iterar sobre todas as paginas
+
+
+## [0.0.4] - 25/09/2019
+
+### Changes
+
+- Agora o Scraper percorre a pagina toda e cria um dataframe pandas
+
+### New Challenges
+
+- nenhum
+
+### Next Steps
+
+- Usar Selenium para Iterar sobre todas as paginas
+
+
 ## [0.0.3] - 21/09/2019
 
 ### Changes
@@ -35,21 +70,6 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Já dá pra ir vendo como que a gente vai pegar todas as seções,
     eu achei o selenium muito irado pra isso
-
-
-## [0.0.4] - 25/09/2019
-
-### Changes
-
-- Agora o Scraper percorre a pagina toda e cria um dataframe pandas
-
-### New Challenges
-
-- nenhum
-
-### Next Steps
-
-- Usar Selenium para Iterar sobre todas as paginas
 
 
 ## [0.0.2] - 18/09/2019
