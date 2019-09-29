@@ -1,1 +1,1 @@
-from .extractor import extract_attendance, Session
+from .extractor import extract_attendance, fetch_sessions, Session

@@ -1,5 +1,6 @@
 '''Attendance extractor module.'''
 from dataclasses import dataclass
+from datetime import date as Date
 from typing import Dict, List, Optional, Tuple
 
 from bs4 import BeautifulSoup
@@ -10,7 +11,7 @@ import requests
 @dataclass
 class Session:
     title: str
-    date: str
+    date: Date
     attendance: Dict[str, Tuple[str, Optional[str]]]
 
     @staticmethod
@@ -31,6 +32,7 @@ def extract_attendance(session_id: int) -> Session:
     soup = BeautifulSoup(html, 'html.parser')
 
     title, date = find_session_header(soup)
+    date = date_from_str(date)
 
     att_table = find_attendance_table(soup)
 
@@ -50,11 +52,17 @@ def extract_attendance(session_id: int) -> Session:
     return Session(title, date, attendance)
 
 
-def last_sessions() -> List[Tuple[str, str]]:
+def fetch_sessions(period: Optional[Date] = None) -> List[Tuple[str, str]]:
     '''
-    Retrieves a list of last month's session ids and their dates.
+    Retrieves a list of given period's session ids and their dates. The period
+    comprehends only month/year, so day is ignored. If period is ommited, then
+    last available period is used.
     '''
     url = 'http://transparencia.alesc.sc.gov.br/presenca_plenaria.php'
+
+    if period is not None:
+        url += f'?periodo={period.month}-{period.year}'
+
     html = load_html(url)
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -65,15 +73,20 @@ def last_sessions() -> List[Tuple[str, str]]:
     date_href_tuples = []
     for tr in rows:
         tds = tr.findAll('td')
-        date = tds[2].text
+        session_date = date_from_str(tds[2].text)
         session_id = tds[3].find('a').attrs['href'].split('id=')[1]
-        date_href_tuples.append((date, session_id))
+        date_href_tuples.append((session_id, session_date))
 
     return date_href_tuples
 
 
 def load_html(url: str) -> str:
     return requests.get(url).text
+
+
+def date_from_str(s: str, delim: str = '/') -> Date:
+    d, m, y = map(int, s.split(delim))
+    return Date(y, m, d)
 
 
 def iter_rows(table: Tag):
@@ -86,7 +99,6 @@ def iter_rows(table: Tag):
 def find_session_header(soup: BeautifulSoup) -> Tuple[str, str]:
     '''Retrieves title and date from session page.'''
     title, date = soup.find(id='conteudo').h3.text.split('-')
-    date = date.replace('/', '-')
     return title.strip(), date.strip()
 
 

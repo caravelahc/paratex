@@ -1,7 +1,9 @@
 '''Tests for data extractor.'''
+from datetime import date as Date
+
 import pytest
 
-from paratex import extract_attendance, Session
+from paratex import extract_attendance, fetch_sessions, Session
 from paratex.extractor import find_session_header
 
 
@@ -14,7 +16,7 @@ def test_title_extraction():
 
 
 def test_date_extraction():
-    assert default_session().date == '19-09-2019'
+    assert default_session().date == Date(2019, 9, 19)
 
 
 def test_sample_attendance_extraction():
@@ -30,3 +32,32 @@ def test_sample_attendance_extraction():
 
     for parliamentary, attendance in KNOWN_ATTENDANCES.items():
         assert session.attendance[parliamentary] == attendance
+
+
+def test_fetch_sessions_length():
+    sessions = fetch_sessions(period=Date(2019, 8, 1))
+    assert len(sessions) == 11
+
+
+def test_fetch_sessions_dates():
+    session_dates = [
+        session_date
+        for _, session_date in fetch_sessions(period=Date(2019, 8, 1))
+    ]
+
+    KNOWN_DATES = [
+        Date(2019, 8, 28),
+        Date(2019, 8, 27),
+        Date(2019, 8, 22),
+        Date(2019, 8, 21),
+        Date(2019, 8, 20),
+        Date(2019, 8, 15),
+        Date(2019, 8, 14),
+        Date(2019, 8, 13),
+        Date(2019, 8, 8),
+        Date(2019, 8, 7),
+        Date(2019, 8, 6),
+    ]
+
+    for date in KNOWN_DATES:
+        assert any(date == session_date for session_date in session_dates)
