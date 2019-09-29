@@ -1,7 +1,34 @@
+from datetime import date
+import calendar
+
 import pandas as pd
 
 from .extractor import extract_attendance, Session
 
+
+def add_month(sourcedate):
+    month = sourcedate.month
+    year = sourcedate.year + month // 12
+    month = month % 12 + 1
+    day = min(sourcedate.day, calendar.monthrange(year, month)[1])
+    return date(year, month, day)
+
+
+def get_month_sessions() -> list:
+    dt = date(2011, 4, 1)
+    URL = []
+    while dt < date.today():
+        dt = add_month(dt)
+        URL.append(f"presenca_plenaria.php?periodo={dt.month:02}-{dt.year}")
+    return URL
+
+
+def main():
+    baseURL = "http://transparencia.alesc.sc.gov.br/"
+
+    month_URL_list = get_month_sessions()
+    for monthURL in month_URL_list:
+        print(baseURL + monthURL)
 
 def main():
     session = extract_attendance(1783)
@@ -24,5 +51,5 @@ def as_dataframe(session: Session):
     return df
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
