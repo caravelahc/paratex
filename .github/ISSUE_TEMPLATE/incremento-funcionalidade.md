@@ -9,8 +9,8 @@ assignees: ''
 
 **Resumo**
 
-(Uma breve descrição da _feature_/incremento.)
+(Uma breve descrição da funcionalidade/incremento.)
 
-**Alternativas**
+**Alternativas (Opcional)**
 
 (Outras possibilidades de soluções para a _feature_/incremento (se tiver ideias).)
