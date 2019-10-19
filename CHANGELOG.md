@@ -14,6 +14,25 @@ Cada "passagem de canudo" deve ser registrada aqui em 3 seções:
 Este formato é baseado em [Keep a
 Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.0.6] - 29/09/2019
+
+### Changes
+
+- Adicionados testes unitários para garantir que as informações estão vindo
+  como esperado;
+- Refatorado o código separando apenas em `extractor.py` as questões
+  relacionadas a extração de dados.
+
+### Next Steps
+
+- Transformar o `paratex` em uma aplicação CLI (além de ser uma lib), por exemplo:
+  ```console
+  $ paratex fetch-sessions 09-2019
+  [('1786', datetime.date(2019, 9, 26)), ('1785', datetime.date(2019, 9, 25)), ('1784', datetime.date(2019, 9, 24)), ('1783', datetime.date(2019, 9, 19)), ('1781', datetime.date(2019, 9, 18)), ('1779', datetime.date(2019, 9, 17)), ('1778', datetime.date(2019, 9, 12)), ('1776', datetime.date(2019, 9, 11)), ('1775', datetime.date(2019, 9, 5)), ('1773', datetime.date(2019, 9, 4)), ('1772', datetime.date(2019, 9, 3))]
+  $ paratex fetch-presence --id 1783
+  Session(title='85ª Sessão Ordinária', date=datetime.date(2019, 9, 19), attendance={'Ada De Luca': ('Outras', 'Reunião do inventário referente ao falecimento de seu esposo.'), 'Altair Silva': ('Atividade Parlamentar Externa', 'Participar da Reunião Alianza Mercosur - Unión Europea, que acontecerá no dia 29 de setembro em La Plata - Província de Buenos Aires, Argentina.'), 'Ana Campagnolo': ('Presente', None), 'Bruno Souza': ('Presente', None), 'Doutor Vicente': ('Presente', None), 'Fabiano da Luz': ('Licença Médica', None), 'Felipe Estevão': ('Presente', None), 'Fernando Krelling': ('Presente', None), 'Ismael dos Santos': ('Presente', None), 'Ivan Naatz': ('Atividade Parlamentar Externa', None), 'Jair Miotto': ('Presente', None), 'Jerry Comper': ('Presente', None), 'Jesse Lopes': ('Presente', None), 'João Amin': ('Presente', None), 'José Milton Scheffer': ('Presente', None), 'Julio Garcia': ('Presente', None), 'Kennedy Nunes': ('Presente', None), 'Laércio Schuster': ('Presente', None), 'Luciane Carminatti': ('Presente', None), 'Luiz Fernando Vampiro': ('Atividade Parlamentar Externa', None), 'Marcius Machado': ('Presente', None), 'Marcos Vieira': ('Presente', None), 'Marlene Fengler': ('Presente', None), 'Mauricio Eskudlark': ('Presente', None), 'Mauro de Nadal': ('Presente', None), 'Milton Hobus': ('Outras', 'Motivo de saúde.'), 'Moacir Sopelsa': ('Presente', None), 'Nazareno Martins': ('Presente', None), 'Neodi Saretta': ('Presente', None), 'Nilso Berlanda': ('Presente', None), 'Padre Pedro Baldissera': ('Presente', None), 'Paulinha': ('Presente', None), 'Ricardo Alba': ('Presente', None), 'Rodrigo Minotto': ('Presente', None), 'Romildo Titon': ('Presente', None), 'Sargento Lima': ('Atividade Parlamentar Externa', 'Viagem  para Brasilia com o objetivo de apresentar sugestão de alteração do Pacote Anticrime do Governo Federal que tramita no Congresso Nacional e articulação junto aos Deputados Federais e Senadores.'), 'Sergio Motta': ('Presente', None), 'Valdir Cobalchini': ('Presente', None), 'Volnei Weber': ('Presente', None)})
+
+  ```
 
 ## [0.0.5] - 28/09/2019
 

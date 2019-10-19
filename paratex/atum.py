@@ -1,12 +1,13 @@
+'''rodem essa bodega com
+"python -i atum.py" ou
+dai da pra ir rodando novos comandos no terminal
+e ir vendo como o selenium responde, eh bem top
+
+instalando geckodriver
+https://askubuntu.com/questions/851401/where-to-find-geckodriver-needed-by-selenium-python-package
+'''
 from selenium import webdriver
 
-# rodem essa bodega com 
-# "python -i atum.py" ou
-# dai da pra ir rodando novos comandos no terminal
-# e ir vendo como o selenium responde, eh bem top
-
-# instalando geckodriver
-# https://askubuntu.com/questions/851401/where-to-find-geckodriver-needed-by-selenium-python-package
 
 class Atum:
     def __init__(self, driver):
@@ -22,7 +23,8 @@ class Atum:
     def navigate(self):
         self.driver.get(self.url)
 
-ff = webdriver.Firefox()
-atum = Atum(ff)
-atum.navigate()
 
+if __name__ == '__main__':
+    ff = webdriver.Firefox()
+    atum = Atum(ff)
+    atum.navigate()
