@@ -2,6 +2,7 @@
 from dataclasses import dataclass
 from datetime import date as Date
 from typing import Dict, List, Optional, Tuple
+import calendar
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
@@ -104,3 +105,24 @@ def find_session_header(soup: BeautifulSoup) -> Tuple[str, str]:
 
 def find_attendance_table(soup: BeautifulSoup) -> Tag:
     return soup.find(id='conteudo').table
+
+
+def advance_month(date: Date) -> Date:
+    month = date.month
+    year = date.year + month // 12
+    month = month % 12 + 1
+    day = min(date.day, calendar.monthrange(year, month)[1])
+    return Date(year, month, day)
+
+
+def get_month_sessions_urls() -> List[str]:
+    dt = Date(2011, 4, 1)
+    URL = []
+    BASE_URL = 'http://transparencia.alesc.sc.gov.br/'
+    while dt < Date.today():
+        dt = advance_month(dt)
+        URL.append(
+            f'{BASE_URL}/presenca_plenaria.php?'
+            f'periodo={dt.month:02}-{dt.year}'
+        )
+    return URL
