@@ -56,8 +56,11 @@ def fetch_sessions_from_interval(start: Optional[Date] = None, end: Optional[Dat
     '''
     Retrieves a list of given period's session ids and their dates. The period
     comprehends only month/year, so day is ignored. If period is ommited, then
-    last available period is used.
+    last available period is used. If end is ommited use current date as end.
     '''
+
+    if end is None and start is not None:
+        end = Date.today()
 
     if end.year < start.year or (end.year == start.year and end.month < start.month):
         raise ValueError("End date must be bigger than start date")
