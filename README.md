@@ -32,7 +32,18 @@ contribuição, mas sinta-se à vontade para contribuir:
 Instalação
 ----------
 
-_TODO_ (#12).
+[Instale-se um python!](https://realpython.com/installing-python/)
+
+Instale o poetry
+- curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+- echo 'export PATH=$PATH:$HOME/.poetry/bin' >> ~/.bashrc (se vc estiver usando bash)
+- source ~/.bashrc
+
+Se crie um venv somehow 
+(ver make dos trampo) 
+(pq eu nao vou mandas a pessoa ir se instalando pandas)
+(mas pq poetry nao ta resolvendo aqui?)
+
 
 Uso
 ---
