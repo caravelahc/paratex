@@ -32,7 +32,29 @@ contribuição, mas sinta-se à vontade para contribuir:
 Instalação
 ----------
 
-_TODO_ (#12).
+#### Como bilioteca
+
+`pip install paratex`
+
+(TODO: não está publicado no PyPI ainda)
+
+
+#### Para desenvolvimento
+
+Este projeto usa o `poetry` para gerenciar dependências.
+[Após instalá-lo](https://github.com/sdispater/poetry), execute o seguinte comando
+para instalar as dependências.
+
+```bash
+$ poetry install
+```
+
+Para executar o projeto, utilize o comando abaixo.
+
+```
+poetry run python paratex/__main__.py
+```
+
 
 Uso
 ---
