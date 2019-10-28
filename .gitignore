@@ -2,3 +2,6 @@ __pycache__
 .mypy_cache
 *.egg-info
 paratex/output/*.csv
+
+.idea/
+.venv/
