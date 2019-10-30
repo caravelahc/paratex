@@ -43,7 +43,7 @@ Primeiras coisas primeiro:
 
 Instale o poetry
 - curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
-- echo 'export PATH=$PATH:$HOME/.poetry/bin' >> ~/.bashrc (se vc estiver usando bash)
+- echo 'export PATH=$PATH:$HOME/.poetry/bin' >> ~/.bashrc (se você estiver usando bash)
 - source ~/.bashrc
 
 Clone e entre no repositorio
