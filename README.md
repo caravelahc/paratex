@@ -32,6 +32,13 @@ contribuição, mas sinta-se à vontade para contribuir:
 Instalação
 ----------
 
+Por ora, esse processo de instalação se orienta a desenvolvedores, 
+em breve criaremos ferramentas mais apropriadas de acesso à informação para o público geral.
+
+Primeiras coisas primeiro:
+- sudo apt-get update
+- sudo apt install git curl
+
 [Instale-se um python!](https://realpython.com/installing-python/)
 
 Instale o poetry
@@ -39,10 +46,12 @@ Instale o poetry
 - echo 'export PATH=$PATH:$HOME/.poetry/bin' >> ~/.bashrc (se vc estiver usando bash)
 - source ~/.bashrc
 
-Se crie um venv somehow 
-(ver make dos trampo) 
-(pq eu nao vou mandas a pessoa ir se instalando pandas)
-(mas pq poetry nao ta resolvendo aqui?)
+Clone e entre no repositorio
+- git clone https://github.com/caravelahc/paratex.git
+
+Use o poetry para cuidar das coisas para você
+- poetry install
+- poetry run python <script_desejado>.py
 
 
 Uso
