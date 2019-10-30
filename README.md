@@ -36,22 +36,22 @@ Por ora, esse processo de instalação se orienta a desenvolvedores,
 em breve criaremos ferramentas mais apropriadas de acesso à informação para o público geral.
 
 Primeiras coisas primeiro:
-- sudo apt-get update
-- sudo apt install git curl
+- `sudo apt update`
+- `sudo apt install git curl`
 
 [Instale-se um python!](https://realpython.com/installing-python/)
 
 Instale o poetry
-- curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
-- echo 'export PATH=$PATH:$HOME/.poetry/bin' >> ~/.bashrc (se você estiver usando bash)
-- source ~/.bashrc
+- `curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python`
+- `echo 'export PATH=$PATH:$HOME/.poetry/bin' >> ~/.bashrc` (se você estiver usando bash)
+- `source ~/.bashrc`
 
 Clone e entre no repositorio
-- git clone https://github.com/caravelahc/paratex.git
+- `git clone https://github.com/caravelahc/paratex.git`
 
 Use o poetry para cuidar das coisas para você
-- poetry install
-- poetry run python <script_desejado>.py
+- `poetry install`
+- `poetry run python <script_desejado>.py`
 
 
 Uso
