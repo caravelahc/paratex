@@ -15,8 +15,8 @@ def join_from_output(output_path=SOURCE_DIR):
     all_dfs = pd.DataFrame()
     all_csv_files = list(output_path.glob('*.csv'))
     all_csv_files.sort()
-    interval_begin = all_csv_files[0].as_posix().split('/')[-1].strip(".csv")
-    interval_end = all_csv_files[-1].as_posix().split('/')[-1].strip(".csv")
+    interval_begin = all_csv_files[0].name.strip(".csv")
+    interval_end = all_csv_files[-1].name.strip(".csv")
     
     for csv_file in all_csv_files:
         full_path = SOURCE_DIR.joinpath(csv_file)
