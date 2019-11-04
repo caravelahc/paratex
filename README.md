@@ -33,9 +33,10 @@ Instalação
 ----------
 
 No momento, o projeto ainda não está disponível para instalação pelo PIP, mas
-há planos para isso (#20). Portanto, este processo de instalação é direcionado
-a desenvolvedores. Em breve criaremos ferramentas mais apropriadas de acesso à
-informação para o público geral (#13).
+há planos para isso ([#20](https://github.com/caravelahc/paratex/issues/20)).
+Portanto, este processo de instalação é direcionado a desenvolvedores. Em breve
+criaremos ferramentas mais apropriadas de acesso à informação para o público
+geral ([#13](https://github.com/caravelahc/paratex/issues/13)).
 
 - Primeiras coisas primeiro, recomendamos que sua distribuição esteja
   atualizada e que você possua **Python 3.7 ou superior**;
