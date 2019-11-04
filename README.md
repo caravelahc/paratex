@@ -32,27 +32,33 @@ contribuição, mas sinta-se à vontade para contribuir:
 Instalação
 ----------
 
-Por ora, esse processo de instalação se orienta a desenvolvedores, 
-em breve criaremos ferramentas mais apropriadas de acesso à informação para o público geral.
+No momento, o projeto ainda não está disponível para instalação pelo PIP, mas
+há planos para isso (#20). Portanto, este processo de instalação é direcionado
+a desenvolvedores. Em breve criaremos ferramentas mais apropriadas de acesso à
+informação para o público geral (#13).
 
-Primeiras coisas primeiro:
-- `sudo apt update`
-- `sudo apt install git curl`
+- Primeiras coisas primeiro, recomendamos que sua distribuição esteja
+  atualizada e que você possua **Python 3.7 ou superior**;
+- Clone o repositorio e entre na pasta dele:
 
-[Instale-se um python!](https://realpython.com/installing-python/)
+  ```console
+  $ git clone https://github.com/caravelahc/paratex
+  $ cd paratex
+  ```
 
-Instale o poetry
-- `curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python`
-- `echo 'export PATH=$PATH:$HOME/.poetry/bin' >> ~/.bashrc` (se você estiver usando bash)
-- `source ~/.bashrc`
+Este projeto usa o `poetry` para gerenciar dependências. [Após
+instalá-lo](https://github.com/sdispater/poetry), execute o seguinte comando
+para instalar as dependências:
 
-Clone e entre no repositorio
-- `git clone https://github.com/caravelahc/paratex.git`
+```console
+$ poetry install
+```
 
-Use o poetry para cuidar das coisas para você
-- `poetry install`
-- `poetry run python <script_desejado>.py`
+Para executar o projeto, utilize o comando abaixo.
 
+```
+poetry run python paratex/__main__.py
+```
 
 Uso
 ---
