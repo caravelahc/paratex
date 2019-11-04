@@ -32,20 +32,25 @@ contribuição, mas sinta-se à vontade para contribuir:
 Instalação
 ----------
 
-#### Como bilioteca
+No momento, o projeto ainda não está disponível para instalação pelo PIP, mas
+há planos para isso (#20). Portanto, este processo de instalação é direcionado
+a desenvolvedores. Em breve criaremos ferramentas mais apropriadas de acesso à
+informação para o público geral (#13).
 
-`pip install paratex`
+- Primeiras coisas primeiro, recomendamos que sua distribuição esteja
+  atualizada e que você possua **Python 3.7 ou superior**;
+- Clone o repositorio e entre na pasta dele:
 
-(TODO: não está publicado no PyPI ainda)
+  ```console
+  $ git clone https://github.com/caravelahc/paratex
+  $ cd paratex
+  ```
 
+Este projeto usa o `poetry` para gerenciar dependências. [Após
+instalá-lo](https://github.com/sdispater/poetry), execute o seguinte comando
+para instalar as dependências:
 
-#### Para desenvolvimento
-
-Este projeto usa o `poetry` para gerenciar dependências.
-[Após instalá-lo](https://github.com/sdispater/poetry), execute o seguinte comando
-para instalar as dependências.
-
-```bash
+```console
 $ poetry install
 ```
 
@@ -54,7 +59,6 @@ Para executar o projeto, utilize o comando abaixo.
 ```
 poetry run python paratex/__main__.py
 ```
-
 
 Uso
 ---
