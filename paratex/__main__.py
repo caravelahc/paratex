@@ -3,14 +3,10 @@ from pathlib import Path
 
 import pandas as pd
 from extractor import extract_attendance, Session, fetch_sessions_from_interval
-
-PARTITIONED_PATH = Path(__file__).parent / 'output_partitioned'
-PARTITIONED_PATH.mkdir(parents=True, exist_ok=True)
-JOINED_PATH = Path(__file__).resolve().parent.joinpath('joined_csvs')
-JOINED_PATH.mkdir(parents=True, exist_ok=True)
-
+from join_parts import PARTITIONED_PATH, JOINED_PATH
 
 def partitioned_process(sessions):
+    PARTITIONED_PATH.mkdir(parents=True, exist_ok=True)
     for month in sessions:
         for session in month:
             session_id = session[0]
@@ -22,6 +18,7 @@ def partitioned_process(sessions):
 
 
 def joined_process(sessions, interval_begin, interval_end):
+    JOINED_PATH.mkdir(parents=True, exist_ok=True)
     all_dfs = pd.DataFrame()
 
     for month in sessions:
@@ -29,14 +26,16 @@ def joined_process(sessions, interval_begin, interval_end):
             session_id = session[0]
             session_data = extract_attendance(session_id)
             dataframe = session_as_dataframe(session_data)
-            print('Building', f"{dataframe.iloc[1, 3]}.csv", end='\r')
+            print(f'Building {dataframe.iloc[1, 3]}.csv', end='\r')
             all_dfs = pd.concat([all_dfs, dataframe])
 
     dataframe.to_csv(JOINED_PATH / f"{interval_begin}_to_{interval_end}.csv", index=False)
 
 
 def main(partitioned_mode=False):
-    """partitioned_mode: If output should segment csvs for each session"""
+    '''partitioned_mode: 
+            True makes output splitted into a CSV file for each session, 
+            False joins sessions into a single CSV.'''
     interval_begin = "2011-10-15"    
     interval_end = "2011-10-15"    
 
@@ -63,5 +62,5 @@ def session_as_dataframe(session: Session):
     return df
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
