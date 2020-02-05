@@ -63,7 +63,7 @@ def fetch_sessions_from_interval(start: Optional[Date] = None, end: Optional[Dat
         end = Date.today()
 
     if end.year < start.year or (end.year == start.year and end.month < start.month):
-        raise ValueError("End date must be bigger than start date")
+        raise ValueError('End date must be after start date')
 
     url = 'http://transparencia.alesc.sc.gov.br/presenca_plenaria.php'
     query = ''
@@ -91,10 +91,10 @@ def fetch_sessions_from_interval(start: Optional[Date] = None, end: Optional[Dat
 def fetch_session(url: str) -> List[Tuple[str, str]]:
     html = load_html(url)
     soup = BeautifulSoup(html, 'html.parser')
-    table = soup.find('table', {'summary': "Presença dos Deputados"})
-    
+    table = soup.find('table', {'summary': 'Presença dos Deputados'})
+
     if table is not None:
-        rows = table.findAll('tr', {'style': "text-align: center;"})
+        rows = table.findAll('tr', {'style': 'text-align: center;'})
 
         date_href_tuples = []
         for tr in rows:
@@ -137,13 +137,13 @@ def advance_month(date: Date) -> Date:
     return Date(year, month, day)
 
 def get_month_sessions_urls() -> List[str]:
-    dt = Date(2011, 4, 1)
+    starting_date = Date(2011, 4, 1)
     URL = []
     BASE_URL = 'http://transparencia.alesc.sc.gov.br/'
-    while dt < Date.today():
-        dt = advance_month(dt)
+    while starting_date < Date.today():
+        starting_date = advance_month(starting_date)
         URL.append(
             f'{BASE_URL}/presenca_plenaria.php?'
-            f'periodo={dt.month:02}-{dt.year}'
+            f'periodo={starting_date.month:02}-{starting_date.year}'
         )
     return URL
