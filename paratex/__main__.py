@@ -3,8 +3,9 @@ from pathlib import Path
 
 import pandas as pd
 
-from .extractor import extract_attendance, Session, fetch_sessions_from_interval
-from .join_parts import PARTITIONED_PATH, JOINED_PATH
+from paratex.extractor import Session, extract_attendance, fetch_sessions_from_interval
+from paratex.join_parts import JOINED_PATH, PARTITIONED_PATH
+
 
 def partitioned_process(sessions):
     PARTITIONED_PATH.mkdir(parents=True, exist_ok=True)

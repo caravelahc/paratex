@@ -1,1 +1,1 @@
-from .extractor import extract_attendance, fetch_sessions_from_interval, Session
+from paratex.extractor import Session, extract_attendance, fetch_sessions_from_interval
