@@ -1,4 +1,4 @@
-'''Tests for data extractor.'''
+"""Tests for data extractor."""
 from datetime import date as Date
 
 import pytest
@@ -12,7 +12,7 @@ def default_session() -> Session:
 
 
 def test_title_extraction():
-    assert default_session().title == '85ª Sessão Ordinária'
+    assert default_session().title == "85ª Sessão Ordinária"
 
 
 def test_date_extraction():
@@ -23,11 +23,8 @@ def test_sample_attendance_extraction():
     session = default_session()
 
     KNOWN_ATTENDANCES = {
-        'Paulinha': ('Presente', None),
-        'Ada De Luca': (
-            'Outras',
-            'Reunião do inventário referente ao falecimento de seu esposo.'
-        ),
+        "Paulinha": ("Presente", None),
+        "Ada De Luca": ("Outras", "Reunião do inventário referente ao falecimento de seu esposo."),
     }
 
     for parliamentary, attendance in KNOWN_ATTENDANCES.items():
@@ -40,10 +37,7 @@ def test_fetch_sessions_length():
 
 
 def test_fetch_sessions_dates():
-    session_dates = [
-        session_date
-        for _, session_date in fetch_sessions(period=Date(2019, 8, 1))
-    ]
+    session_dates = [session_date for _, session_date in fetch_sessions(period=Date(2019, 8, 1))]
 
     KNOWN_DATES = [
         Date(2019, 8, 28),
