@@ -1,0 +1,31 @@
+name: python-test
+
+on: [push, pull_request]
+
+jobs:
+  python-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+    -
+      uses: actions/checkout@v2
+    -
+      name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    -
+      name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install poetry
+        poetry install
+    -
+      name: Run tests
+      run: |
+        poetry run isort --check-only --diff --line-width=100 .
+        poetry run black --check --diff --line-length=100 .
