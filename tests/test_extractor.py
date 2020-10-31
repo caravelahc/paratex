@@ -3,7 +3,7 @@ from datetime import date as Date
 
 import pytest
 
-from paratex import extract_attendance, fetch_sessions, Session
+from paratex import Session, extract_attendance, fetch_sessions
 from paratex.extractor import find_session_header
 
 
