@@ -1,12 +1,13 @@
 '''Attendance extractor module.'''
+import calendar
 from dataclasses import dataclass
 from datetime import date as Date
 from typing import Dict, List, Optional, Tuple
-import calendar
 
+import requests
 from bs4 import BeautifulSoup
 from bs4.element import Tag
-import requests
+
 
 @dataclass
 class Session:
