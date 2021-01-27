@@ -17,7 +17,10 @@ class Session:
 
     @staticmethod
     def make_url(session_id: int):
-        BASE_URL = "http://transparencia.alesc.sc.gov.br/" "presenca_plenaria_detalhes.php"
+        BASE_URL = (
+            "http://transparencia.alesc.sc.gov.br/"
+            "presenca_plenaria_detalhes.php"
+        )
         return f"{BASE_URL}?id={session_id}"
 
 
@@ -90,6 +93,10 @@ def fetch_sessions_from_interval(
 
 
 def fetch_session(url: str) -> List[Tuple[str, str]]:
+    """
+    Accesses a session's attendance page URL and returns the attencance table
+    columns.
+    """
     html = load_html(url)
     soup = BeautifulSoup(html, "html.parser")
     table = soup.find("table", {"summary": "Presença dos Deputados"})
@@ -119,14 +126,14 @@ def date_from_str(s: str, delim: str = "/") -> Date:
 
 
 def iter_rows(table: Tag):
-    """Iter through a table's rows."""
+    """Iter through a HTML table's rows."""
     trs = table.find_all("tr")
     for tr in trs:
         yield tr.find_all("td")
 
 
 def find_session_header(soup: BeautifulSoup) -> Tuple[str, str]:
-    """Retrieves title and date from session page."""
+    """Retrieves title and date from a session's attendance page."""
     title, date = soup.find(id="conteudo").h3.text.split("-")
     return title.strip(), date.strip()
 

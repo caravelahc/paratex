@@ -9,8 +9,10 @@ JOINED_PATH = Path(__file__).resolve().parent.joinpath("joined_csvs")
 
 
 def join_from_output(partitioned_path=PARTITIONED_PATH):
-    """Joins all ".csv" files located in `partitioned_path` (non-recursive)
-    into a single file."""
+    """
+    Joins all ".csv" files located in `partitioned_path` (non-recursive)
+    into a single file.
+    """
     assert os.access(partitioned_path, os.R_OK)
     JOINED_PATH.mkdir(parents=True, exist_ok=True)
 
