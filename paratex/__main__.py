@@ -31,7 +31,9 @@ def joined_process(sessions, interval_begin, interval_end):
             print(f"Building {dataframe.iloc[1, 3]}.csv", end="\r")
             all_dfs = pd.concat([all_dfs, dataframe])
 
-    dataframe.to_csv(JOINED_PATH / f"{interval_begin}_to_{interval_end}.csv", index=False)
+    all_dfs.to_csv(
+        JOINED_PATH / f"{interval_begin}_to_{interval_end}.csv", index=False
+    )
 
 
 def main(partitioned_mode=False):
