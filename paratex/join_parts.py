@@ -26,7 +26,9 @@ def join_from_output(partitioned_path=PARTITIONED_PATH):
         full_path = PARTITIONED_PATH.joinpath(csv_file)
         all_dfs = pd.concat([all_dfs, pd.read_csv(full_path)])
 
-    all_dfs.to_csv(JOINED_PATH.joinpath(f"{interval_begin}_to_{interval_end}.csv"), index=False)
+    all_dfs.to_csv(
+        JOINED_PATH.joinpath(f"{interval_begin}_to_{interval_end}.csv"), index=False
+    )
 
 
 if __name__ == "__main__":

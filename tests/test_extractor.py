@@ -24,7 +24,10 @@ def test_sample_attendance_extraction():
 
     KNOWN_ATTENDANCES = {
         "Paulinha": ("Presente", None),
-        "Ada De Luca": ("Outras", "Reunião do inventário referente ao falecimento de seu esposo."),
+        "Ada De Luca": (
+            "Outras",
+            "Reunião do inventário referente ao falecimento de seu esposo.",
+        ),
     }
 
     for parliamentary, attendance in KNOWN_ATTENDANCES.items():
@@ -37,7 +40,9 @@ def test_fetch_sessions_length():
 
 
 def test_fetch_sessions_dates():
-    session_dates = [session_date for _, session_date in fetch_sessions(period=Date(2019, 8, 1))]
+    session_dates = [
+        session_date for _, session_date in fetch_sessions(period=Date(2019, 8, 1))
+    ]
 
     KNOWN_DATES = [
         Date(2019, 8, 28),
