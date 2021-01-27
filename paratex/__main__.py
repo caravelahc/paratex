@@ -3,7 +3,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from .extractor import Session, extract_attendance, fetch_sessions_from_interval
+from .extractor import (Session, extract_attendance,
+                        fetch_sessions_from_interval)
 from .join_parts import JOINED_PATH, PARTITIONED_PATH
 
 
