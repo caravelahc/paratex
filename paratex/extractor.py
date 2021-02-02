@@ -17,9 +17,7 @@ class Session:
 
     @staticmethod
     def make_url(session_id: int):
-        BASE_URL = (
-            "http://transparencia.alesc.sc.gov.br/presenca_plenaria_detalhes.php"
-        )
+        BASE_URL = "http://transparencia.alesc.sc.gov.br/presenca_plenaria_detalhes.php"
         return f"{BASE_URL}?id={session_id}"
 
 
