@@ -1,10 +1,9 @@
 from datetime import date
 from pathlib import Path
 
-import pandas as pd
-
-from .extractor import Session, extract_attendance, fetch_sessions_from_interval
-from .join_parts import JOINED_PATH, PARTITIONED_PATH
+from .extractor import (Session, extract_attendance,
+                        fetch_sessions_from_interval)
+from .join_parts import CSV, JOINED_PATH, PARTITIONED_PATH
 
 
 def partitioned_process(sessions):
@@ -14,34 +13,37 @@ def partitioned_process(sessions):
             session_id = session[0]
             session_data = extract_attendance(session_id)
             dataframe = session_as_dataframe(session_data)
-            path = PARTITIONED_PATH / f"{dataframe.iloc[1, 3]}.csv"
+            path = PARTITIONED_PATH / f"{session_data.title}.csv"
             print("Saving", path, end="\r")
-            dataframe.to_csv(path, index=False)
+            dataframe.save(path)
 
 
 def joined_process(sessions, interval_begin, interval_end):
     JOINED_PATH.mkdir(parents=True, exist_ok=True)
-    all_dfs = pd.DataFrame()
+    all_dfs = CSV(headers=("Nome", "Presenca", "Justificativa", "Data"), data=[])
 
     for month in sessions:
         for session in month:
             session_id = session[0]
             session_data = extract_attendance(session_id)
             dataframe = session_as_dataframe(session_data)
-            print(f"Building {dataframe.iloc[1, 3]}.csv", end="\r")
-            all_dfs = pd.concat([all_dfs, dataframe])
+            print(f"Building {session_data.date}.csv", end="\r")
+            all_dfs.data += dataframe.data
 
-    all_dfs.to_csv(JOINED_PATH / f"{interval_begin}_to_{interval_end}.csv", index=False)
+    all_dfs.save(
+        JOINED_PATH / f"{interval_begin}_to_{interval_end}.csv"
+    )
 
 
 def main(partitioned_mode=False):
-    """partitioned_mode:
-    True makes output splitted into a CSV file for each session,
-    False joins sessions into a single CSV."""
-    interval_begin = "2011-10-15"
-    interval_end = "2011-10-15"
+    """
+    partitioned_mode: True makes output splitted into a CSV file for each
+    session, False joins sessions into a single CSV.
+    """
+    interval_begin = date(2014, 4, 22)
+    interval_end = date(2015, 5, 15)
 
-    sessions = fetch_sessions_from_interval(date(2011, 10, 15), date(2019, 10, 15))
+    sessions = fetch_sessions_from_interval(interval_begin, interval_end)
 
     if partitioned_mode:
         partitioned_process(sessions)
@@ -51,14 +53,16 @@ def main(partitioned_mode=False):
 
 # Intended to be used later on the code. Will leave this here for utility
 # purposes for now.
-def session_as_dataframe(session: Session):
+def session_as_dataframe(session: Session) -> CSV:
     observations = (
-        (name, presence, justification, session.date)
+        (str(field) for field in (name, presence, justification, session.date))
         for name, (presence, justification) in session.attendance.items()
     )
-    df = pd.DataFrame(observations)
-    df = df.rename({0: "Nome", 1: "Presenca", 2: "Justificativa", 3: "Data"}, axis=1)
-    return df
+
+    return CSV(
+        headers=("Nome", "Presenca", "Justificativa", "Data"),
+        data=list(observations),
+    )
 
 
 if __name__ == "__main__":
