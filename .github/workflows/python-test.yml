@@ -27,5 +27,5 @@ jobs:
     -
       name: Run tests
       run: |
-        poetry run isort --check-only --diff --line-width=100 .
-        poetry run black --check --diff --line-length=100 .
+        poetry run isort --check-only --diff .
+        poetry run black --check --diff .

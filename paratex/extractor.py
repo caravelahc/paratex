@@ -17,10 +17,7 @@ class Session:
 
     @staticmethod
     def make_url(session_id: int):
-        BASE_URL = (
-            "http://transparencia.alesc.sc.gov.br/"
-            "presenca_plenaria_detalhes.php"
-        )
+        BASE_URL = "http://transparencia.alesc.sc.gov.br/presenca_plenaria_detalhes.php"
         return f"{BASE_URL}?id={session_id}"
 
 
@@ -94,7 +91,7 @@ def fetch_sessions_from_interval(
 
 def fetch_session(url: str) -> List[Tuple[str, str]]:
     """
-    Accesses a session's attendance page URL and returns the attencance table
+    Accesses a session's attendance page URL and returns the attendance table
     columns.
     """
     html = load_html(url)
