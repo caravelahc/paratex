@@ -5,7 +5,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Tuple
 
-
 PARTITIONED_PATH = Path(__file__).parent / "partitioned_csvs"
 JOINED_PATH = Path(__file__).resolve().parent.joinpath("joined_csvs")
 
@@ -25,7 +24,7 @@ class CSV:
         return CSV(headers=tuple(rows[0]), data=rows[1:])
 
     def save(self, path: Path):
-        with open(path, 'w') as f:
+        with open(path, "w") as f:
             writer = csv.writer(f)
             writer.writerow(self.headers)
             writer.writerows(self.data)

@@ -1,8 +1,7 @@
 from datetime import date
 from pathlib import Path
 
-from .extractor import (Session, extract_attendance,
-                        fetch_sessions_from_interval)
+from .extractor import Session, extract_attendance, fetch_sessions_from_interval
 from .join_parts import CSV, JOINED_PATH, PARTITIONED_PATH
 
 
@@ -30,9 +29,7 @@ def joined_process(sessions, interval_begin, interval_end):
             print(f"Building {session_data.date}.csv", end="\r")
             all_dfs.data += dataframe.data
 
-    all_dfs.save(
-        JOINED_PATH / f"{interval_begin}_to_{interval_end}.csv"
-    )
+    all_dfs.save(JOINED_PATH / f"{interval_begin}_to_{interval_end}.csv")
 
 
 def main(partitioned_mode=False):
