@@ -8,6 +8,8 @@ import requests
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 
+from paratex.date_utils import months_between
+
 
 @dataclass
 class Session:
@@ -50,13 +52,20 @@ def extract_attendance(session_id: int) -> Session:
     return Session(title, date, attendance)
 
 
+def fetch_sessions(date: Date) -> List[Tuple[str, Date]]:
+    """
+    Retrieves a list of given period's session ids from a date.
+    """
+    return fetch_sessions_from_interval(date, date)
+
+
 def fetch_sessions_from_interval(
     start: Optional[Date] = None, end: Optional[Date] = None
-) -> List[Tuple[str, str]]:
+) -> List[Tuple[str, Date]]:
     """
-    Retrieves a list of given period's session ids and their dates. The period
-    comprehends only month/year, so day is ignored. If period is ommited, then
-    last available period is used. If end is ommited use current date as end.
+    Retrieves a list of given period's session ids and their dates. If period
+    is omitted, then last available period is used. If end is omitted use
+    current date as end.
     """
 
     if end is None and start is not None:
@@ -67,29 +76,21 @@ def fetch_sessions_from_interval(
 
     url = "http://transparencia.alesc.sc.gov.br/presenca_plenaria.php"
     query = ""
-    sessions = list()
+    sessions: List[Tuple[str, Date]] = list()
 
     if start is None and end is None:
-        sessions.append(fetch_session(url))
+        sessions += fetch_session(url)
     else:
-        for delta_year in range(end.year - start.year):
-            if delta_year == 0:
-                for month in range(start.month, 13):
-                    query = f"?periodo={month:02}-{start.year}"
-                    sessions.append(fetch_session(url + query))
-            elif delta_year == (end.year - start.year):
-                for month in range(1, end.month + 1):
-                    query = f"?periodo={month:02}-{end.year}"
-                    sessions.append(fetch_session(url + query))
-            else:
-                for month in range(1, 13):
-                    query = f"?periodo={month:02}-{start.year + delta_year}"
-                    sessions.append(fetch_session(url + query))
+        for month, year in months_between(start, end):
+            query = f"?periodo={month:02}-{year}"
+            sessions += fetch_session(url + query)
+
+        sessions = [session for session in sessions if start <= session[1] <= end]
 
     return sessions
 
 
-def fetch_session(url: str) -> List[Tuple[str, str]]:
+def fetch_session(url: str) -> List[Tuple[str, Date]]:
     """
     Accesses a session's attendance page URL and returns the attendance table
     columns.
