@@ -1,10 +1,14 @@
 """Tests for data extractor."""
 from datetime import date as Date
 
-import pytest
+from pytest import mark
 
-from paratex import Session, extract_attendance, fetch_sessions
-from paratex.extractor import find_session_header
+from paratex import (
+    Session,
+    extract_attendance,
+    fetch_sessions,
+    fetch_sessions_from_interval,
+)
 
 
 def default_session() -> Session:
@@ -35,28 +39,20 @@ def test_sample_attendance_extraction():
 
 
 def test_fetch_sessions_length():
-    sessions = fetch_sessions(period=Date(2019, 8, 1))
-    assert len(sessions) == 11
+    sessions = fetch_sessions(Date(2019, 8, 6))
+    assert len(sessions) == 1
 
 
-def test_fetch_sessions_dates():
-    session_dates = [
-        session_date for _, session_date in fetch_sessions(period=Date(2019, 8, 1))
-    ]
+@mark.parametrize(
+    "start_date, end_date",
+    [
+        (Date(2020, 5, 5), Date(2020, 5, 5)),
+        (Date(2020, 5, 5), Date(2020, 10, 5)),
+        (Date(2020, 5, 5), Date(2021, 10, 5)),
+    ],
+)
+def test_fetch_sessions_from_interval(start_date: Date, end_date: Date):
+    sessions = fetch_sessions_from_interval(start_date, end_date)
 
-    KNOWN_DATES = [
-        Date(2019, 8, 28),
-        Date(2019, 8, 27),
-        Date(2019, 8, 22),
-        Date(2019, 8, 21),
-        Date(2019, 8, 20),
-        Date(2019, 8, 15),
-        Date(2019, 8, 14),
-        Date(2019, 8, 13),
-        Date(2019, 8, 8),
-        Date(2019, 8, 7),
-        Date(2019, 8, 6),
-    ]
-
-    for date in KNOWN_DATES:
-        assert any(date == session_date for session_date in session_dates)
+    assert sessions
+    assert all(start_date <= session[1] <= end_date for session in sessions)
