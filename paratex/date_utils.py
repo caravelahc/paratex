@@ -4,7 +4,7 @@ from typing import Iterator, Tuple
 
 
 def months_between(start: Date, end: Date) -> Iterator[Tuple[str, str]]:
-    """Get the months between a start date and end date.
+    """Get the months from a start date to a end date.
 
     Returns:
         Iterator over tuples containing the month and its year, respectively
